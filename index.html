@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>辞書アプリケーション</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+    .sentence-of-the-day {
+      font-family: 'YourLanguageFont', sans-serif; /* 使用するフォントに変更 */
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <div class="sentence-of-the-day" id="sentenceOfTheDay"></div>
+  <script src="/bundle.js"></script>
+  <script>
+    async function fetchSentenceOfTheDay() {
+      const response = await fetch('/api/sentences/today');
+      const data = await response.json();
+      document.getElementById('sentenceOfTheDay').innerText = data.sentence;
+    }
+    fetchSentenceOfTheDay();
+  </script>
+</body>
+</html>
