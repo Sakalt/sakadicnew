@@ -7,7 +7,9 @@ import SettingsPage from './pages/SettingsPage';
 import CreateDictionary from './components/CreateDictionary';
 import SentenceOfTheDay from './components/SentenceOfTheDay';
 import WordGenerator from './components/WordGenerator';
-import CreateWordForm from './components/CreateWordForm';  // 追加
+import CreateWordForm from './components/CreateWordForm';
+import CreateSentenceForm from './components/CreateSentenceForm';
+import PrivacyPolicy from './components/PrivacyPolicy';  // 追加
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
         <Route path="/create-dictionary" component={CreateDictionary} />
         <Route path="/sentence-of-the-day" component={SentenceOfTheDay} />
         <Route path="/word-generator" component={WordGenerator} />
-        <Route path="/create-word" component={CreateWordForm} />  // 追加
+        <Route path="/create-word" component={CreateWordForm} />
+        <Route path="/create-sentence" component={CreateSentenceForm} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />  // 追加
         {/* 他のルートも追加 */}
       </Switch>
     </Router>
