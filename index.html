@@ -1,29 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>辞書アプリケーション</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-    }
-    .sentence-of-the-day {
-      font-family: 'YourLanguageFont', sans-serif; /* 使用するフォントに変更 */
-    }
-  </style>
+  <title>辞書ウェブアプリケーション</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="root"></div>
-  <div class="sentence-of-the-day" id="sentenceOfTheDay"></div>
-  <script src="/bundle.js"></script>
+  <header style="background-color: #EE7C00;">
+    <nav>
+      <ul>
+        <li><a href="/">ホーム</a></li>
+        <li><a href="/dictionary">辞書</a></li>
+        <li><a href="/sentences">例文</a></li>
+        <li><a href="/settings">設定</a></li>
+        <li><a href="/images">画像</a></li>
+        <li><a href="/word-request">造語依頼</a></li>
+        <li><a href="/register">アカウント作成</a></li>
+        <li><a href="/login">ログイン</a></li>
+        <li><a href="/terms">利用規約</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="content">
+      <h1>辞書ウェブアプリケーションへようこそ</h1>
+      <p>このアプリケーションでは、ユーザーが独自の辞書を作成し、管理することができます。また、他のユーザーが作成した辞書も閲覧できます。</p>
+      
+      <div id="sentence-of-the-day">
+        <h2>今日の例文</h2>
+        <p id="generated-sentence">生成された例文がここに表示されます。</p>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2024 辞書ウェブアプリケーション</p>
+  </footer>
+  
   <script>
-    async function fetchSentenceOfTheDay() {
-      const response = await fetch('/api/sentences/today');
-      const data = await response.json();
-      document.getElementById('sentenceOfTheDay').innerText = data.sentence;
-    }
-    fetchSentenceOfTheDay();
+    document.addEventListener('DOMContentLoaded', function() {
+      // ユーザーがログインしているかどうかを確認するための仮の例
+      const isLoggedIn = true; // ここを実際のログイン状況に応じて動的に変更
+
+      if (isLoggedIn) {
+        const nav = document.querySelector('nav ul');
+        const userPages = `
+          <li><a href="/create-dictionary">辞書作成</a></li>
+          <li><a href="/dictionary-management">辞書管理</a></li>
+        `;
+        nav.innerHTML += userPages;
+      }
+
+      // 今日の例文を生成する機能の仮実装
+      const sentenceOfTheDay = generateSentence();
+      document.getElementById('generated-sentence').innerText = sentenceOfTheDay;
+
+      function generateSentence() {
+        const words = ['私', 'は', '子供', 'の', '保護', '者', 'です', '天才'];
+        return words.join(' ') + '。';
+      }
+    });
   </script>
 </body>
 </html>
