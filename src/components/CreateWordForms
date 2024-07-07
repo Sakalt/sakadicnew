@@ -1,0 +1,109 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function CreateWordForm() {
+  const [word, setWord] = useState('');
+  const [translation, setTranslation] = useState('');
+  const [examples, setExamples] = useState(['']);
+  const [relatedWords, setRelatedWords] = useState(['']);
+  const [image, setImage] = useState('');
+
+  const handleSubmit = async () => {
+    const newWord = {
+      word,
+      translation,
+      examples,
+      relatedWords,
+      image,
+    };
+    await axios.post('/api/words', newWord);
+    alert('単語が作成されました');
+  };
+
+  const handleExampleChange = (index, value) => {
+    const newExamples = [...examples];
+    newExamples[index] = value;
+    setExamples(newExamples);
+  };
+
+  const handleRelatedWordChange = (index, value) => {
+    const newRelatedWords = [...relatedWords];
+    newRelatedWords[index] = value;
+    setRelatedWords(newRelatedWords);
+  };
+
+  const addExample = () => {
+    setExamples([...examples, '']);
+  };
+
+  const addRelatedWord = () => {
+    setRelatedWords([...relatedWords, '']);
+  };
+
+  return (
+    <div>
+      <h2>単語作成</h2>
+      <div>
+        <label>
+          単語:
+          <input
+            type="text"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          翻訳:
+          <input
+            type="text"
+            value={translation}
+            onChange={(e) => setTranslation(e.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          例文:
+          {examples.map((example, index) => (
+            <input
+              key={index}
+              type="text"
+              value={example}
+              onChange={(e) => handleExampleChange(index, e.target.value)}
+            />
+          ))}
+        </label>
+        <button onClick={addExample}>例文を追加</button>
+      </div>
+      <div>
+        <label>
+          関連語:
+          {relatedWords.map((relatedWord, index) => (
+            <input
+              key={index}
+              type="text"
+              value={relatedWord}
+              onChange={(e) => handleRelatedWordChange(index, e.target.value)}
+            />
+          ))}
+        </label>
+        <button onClick={addRelatedWord}>関連語を追加</button>
+      </div>
+      <div>
+        <label>
+          画像URL:
+          <input
+            type="text"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </label>
+      </div>
+      <button onClick={handleSubmit}>作成</button>
+    </div>
+  );
+}
+
+export default CreateWordForm;
