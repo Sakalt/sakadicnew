@@ -1,26 +1,37 @@
-// アカウント登録ページのJavaScript (register.js)
+// register.js
 
 document.getElementById('register-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const formData = new FormData(this);
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const errorMessage = document.getElementById('error-message');
 
-    fetch('register_user.php', {
+    if (password !== confirmPassword) {
+        errorMessage.textContent = 'パスワードが一致しません。';
+        return;
+    }
+
+    fetch('register.php', {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, email, password })
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('アカウント登録に失敗しました');
-        }
-        return response.text();
-    })
+    .then(response => response.json())
     .then(data => {
-        alert('アカウント登録が成功しました');
-        window.location.href = 'login.html';
+        if (data.success) {
+            alert('登録が成功しました。ログインページにリダイレクトします。');
+            window.location.href = 'login.html';
+        } else {
+            errorMessage.textContent = data.error || '登録に失敗しました。';
+        }
     })
     .catch(error => {
         console.error('エラー:', error);
-        alert('アカウント登録に失敗しました');
+        errorMessage.textContent = 'エラーが発生しました。';
     });
 });
