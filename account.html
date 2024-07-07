@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アカウント管理</title>
+    <title>アカウント</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="account.js"></script>
 </head>
 <body>
     <header class="header">
-        <h1>アカウント管理</h1>
+        <h1>アカウント</h1>
         <nav>
             <ul>
                 <li><a href="index.html">ホーム</a></li>
-                <li><a href="dictionary.html">辞書</a></li>
+                <li><a href="dictionary.html?id=1">辞書1</a></li>
+                <li><a href="dictionary.html?id=2">辞書2</a></li>
+                <li><a href="settings.html">設定</a></li>
+                <li><a href="statistics.html">統計</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>アカウント情報</h2>
-        <p id="account-info"></p>
-        <button id="logout-button">ログアウト</button>
+        <h2 id="account-status">アカウント情報</h2>
+        <div id="login-prompt" style="display: none;">
+            <p>ログインしてください。</p>
+            <a href="login.html">ログイン</a>
+        </div>
+        <div id="account-info" style="display: none;">
+            <p>ようこそ, <span id="username"></span>さん</p>
+            <h3>辞書一覧</h3>
+            <ul id="dictionary-list"></ul>
+            <button id="create-dictionary-button">辞書を作成</button>
+        </div>
     </main>
 
     <footer>
