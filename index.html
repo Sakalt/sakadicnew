@@ -1,67 +1,29 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>辞書ウェブアプリケーション</title>
+  <title>辞書アプリ</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="scripts/home.js"></script>
 </head>
 <body>
-  <header style="background-color: #EE7C00;">
+  <header>
+    <h1>辞書アプリ</h1>
     <nav>
       <ul>
-        <li><a href="/">ホーム</a></li>
-        <li><a href="/dictionary.js">辞書</a></li>
-        <li><a href="/sentences">例文</a></li>
-        <li><a href="/account.js">アカウント</a></li>
-        <li><a href="/images">画像</a></li>
-        <li><a href="/word-request">造語依頼</a></li>
-        <li><a href="/Register.js">アカウント作成</a></li>
-        <li><a href="/Login.js">ログイン</a></li>
-        <li><a href="/terms use.html">利用規約</a></li>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="dictionary.html">辞書</a></li>
+        <li><a href="account.html">アカウント</a></li>
       </ul>
     </nav>
   </header>
-  
   <main>
-    <section id="content">
-      <h1>辞書ウェブアプリケーションへようこそ</h1>
-      <p>このアプリケーションでは、ユーザーが独自の辞書を作成し、管理することができます。また、他のユーザーが作成した辞書も閲覧できます。</p>
-      
-      <div id="sentence-of-the-day">
-        <h2>今日の例文</h2>
-        <p id="generated-sentence">生成された例文がここに表示されます。</p>
-      </div>
+    <section>
+      <h2>今日の例文</h2>
+      <p id="sentence-of-the-day"></p>
     </section>
   </main>
-  
-  <footer>
-    <p>&copy; 2024 辞書ウェブアプリケーション</p>
-  </footer>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // ユーザーがログインしているかどうかを確認するための仮の例
-      const isLoggedIn = true; // ここを実際のログイン状況に応じて動的に変更
-
-      if (isLoggedIn) {
-        const nav = document.querySelector('nav ul');
-        const userPages = `
-          <li><a href="/create-dictionary">辞書作成</a></li>
-          <li><a href="/dictionary-management">辞書管理</a></li>
-        `;
-        nav.innerHTML += userPages;
-      }
-
-      // 今日の例文を生成する機能の仮実装
-      const sentenceOfTheDay = generateSentence();
-      document.getElementById('generated-sentence').innerText = sentenceOfTheDay;
-
-      function generateSentence() {
-        const words = ['私', 'は', '子供', 'の', '保護', '者', 'です', '天才'];
-        return words.join(' ') + '。';
-      }
-    });
-  </script>
 </body>
 </html>
