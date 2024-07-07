@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
-<link rel="stylesheet" href="styles.css">
 <head>
-  <meta charset="UTF-8">
-  <title>辞書アプリ</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>辞書</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="dictionary.js"></script>
 </head>
 <body>
-  <header>
-    <h1>辞書アプリ</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="dictionary.html">辞書</a></li>
-        <li><a href="account.html">アカウント</a></li>
-        <li><a href="register.html">新規登録</a></li>
-        <li><a href="terms_of_use.html">利用規約</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section>
-      <h2>辞書アプリについて</h2>
-      <p>このアプリは、ユーザーが独自の辞書を作成し、管理できるウェブアプリケーションです。辞書には単語の追加や例文の作成が可能で、日々更新される今日の例文もご利用いただけます。</p>
-    </section>
+    <header class="header">
+        <h1>辞書</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="dictionary.html?id=1">辞書1</a></li>
+                <li><a href="dictionary.html?id=2">辞書2</a></li>
+                <li><a href="settings.html">設定</a></li>
+                <li><a href="statistics.html">統計</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section>
-      <h2>今日の例文</h2>
-      <p id="sentence-of-the-day">ここに毎日生成される例文が表示されます。</p>
-    </section>
+    <main>
+        <h2 id="dictionary-title">辞書</h2>
+        <ul id="word-list"></ul>
+    </main>
 
-    <section>
-      <h2>著作権情報</h2>
-      <p>&copy; 2024 辞書アプリチーム。無断転載を禁じます。</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2024 辞書アプリチーム。All rights reserved.</p>
-  </footer>
-  <script defer src="scripts/home.js"></script>
+    <footer>
+        <!-- フッターの内容 -->
+    </footer>
 </body>
 </html>
