@@ -3,15 +3,15 @@
 // 日本語の文法に基づいて今日の例文を生成する関数
 function generateSentenceOfTheDay() {
   // 仮の文法に基づいて例文を生成する
-  const subjects = ['私', 'あなた', '彼', '彼女'];
-  const verbs = ['食べる', '寝る', '行く', '読む'];
-  const objects = ['りんご', '本', '映画', '旅行'];
-  
+  const subjects = ['私', 'あなた', '彼', '彼女','私たち','子供'];
+  const verbs = ['食べる', '寝る', '行く', '読む',];
+  const objects = ['りんご', '本', '映画', '旅行','本'];
+  const suffix = [' ','た', 'ている', 'ろ'];
   const subject = subjects[Math.floor(Math.random() * subjects.length)];
   const verb = verbs[Math.floor(Math.random() * verbs.length)];
   const object = objects[Math.floor(Math.random() * objects.length)];
   
-  return `${subject}が${object}を${verb}。`;
+  return `${subject}が${object}を${verb}${suffix}。`;
 }
 
 // DOMが読み込まれた後に実行する処理
