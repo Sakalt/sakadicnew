@@ -33,24 +33,5 @@ document.getElementById('settings-form').addEventListener('submit', function(eve
         console.error('エラー:', error);
         errorMessage.textContent = 'エラーが発生しました。';
     });
-    const settingsForm = document.getElementById('settings-form');
-
-if (settingsForm) {
-    settingsForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // フォームのデフォルトの送信を防止
-        
-        // フォームの処理を行う
-        const fontSelect = document.getElementById('font-select');
-        const selectedFont = fontSelect.value;
-        console.log('Selected Font:', selectedFont);
-
-        // ここで他の設定の処理を追加する
-
-        // 保存が完了したらメッセージを表示するなど
-        alert('Settings saved successfully!');
-    });
-} else {
-    console.error('settings-form が見つかりません。');
-}
 
 });
