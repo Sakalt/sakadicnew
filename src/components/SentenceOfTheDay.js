@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// src/components/SentencesOfToDay.js
 
-function SentenceOfTheDay() {
-  const [sentence, setSentence] = useState('');
-
-  useEffect(() => {
-    const fetchSentence = async () => {
-      const response = await axios.get('/api/sentences/today');
-      setSentence(response.data.sentence);
-    };
-    fetchSentence();
-  }, []);
-
-  return (
-    <div>
-      <h2>今日の例文</h2>
-      <p>{sentence}</p>
-    </div>
-  );
+// 日本語の文法に基づいて今日の例文を生成する関数
+function generateSentenceOfTheDay() {
+  // 仮の文法に基づいて例文を生成する
+  const subjects = ['私', 'あなた', '彼', '彼女'];
+  const verbs = ['食べる', '寝る', '行く', '読む'];
+  const objects = ['りんご', '本', '映画', '旅行'];
+  
+  const subject = subjects[Math.floor(Math.random() * subjects.length)];
+  const verb = verbs[Math.floor(Math.random() * verbs.length)];
+  const object = objects[Math.floor(Math.random() * objects.length)];
+  
+  return `${subject}が${object}を${verb}。`;
 }
 
-export default SentenceOfTheDay;
+// DOMが読み込まれた後に実行する処理
+document.addEventListener('DOMContentLoaded', function() {
+  const sentenceOfTheDay = generateSentenceOfTheDay();
+  displaySentence(sentenceOfTheDay);
+});
+
+// 生成した例文を表示する関数
+function displaySentence(sentence) {
+  const sentenceContainer = document.getElementById('sentence-of-the-day');
+  if (sentenceContainer) {
+    sentenceContainer.textContent = sentence;
+  }
+}
