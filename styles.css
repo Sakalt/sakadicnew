@@ -1,0 +1,17 @@
+/* ボタンのスタイル */
+button {
+  background-color: #09FF00; /* ボタンの背景色 */
+  color: #fff; /* ボタンのテキスト色 */
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ヘッダーのスタイル */
+header {
+  background-color: #FFE4B5; /* ヘッダーの背景色（薄いオレンジ） */
+  padding: 10px;
+  text-align: center;
+}
+
+/* その他のスタイルはここに追加 */
