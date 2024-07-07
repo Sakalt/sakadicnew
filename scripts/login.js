@@ -12,7 +12,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email: email, password: password })
     })
     .then(response => response.json())
     .then(data => {
@@ -21,9 +21,4 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         } else {
             errorMessage.textContent = data.error || 'ログインに失敗しました。';
         }
-    })
-    .catch(error => {
-        console.error('エラー:', error);
-        errorMessage.textContent = 'エラーが発生しました。';
     });
-});
