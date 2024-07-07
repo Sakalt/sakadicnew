@@ -9,7 +9,10 @@ import SentenceOfTheDay from './components/SentenceOfTheDay';
 import WordGenerator from './components/WordGenerator';
 import CreateWordForm from './components/CreateWordForm';
 import CreateSentenceForm from './components/CreateSentenceForm';
-import PrivacyPolicy from './components/PrivacyPolicy';  // 追加
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Register from './components/Register';
+import Login from './components/Login';
+import DictionaryManagement from './components/DictionaryManagement';  // 追加
 
 function App() {
   return (
@@ -24,8 +27,10 @@ function App() {
         <Route path="/word-generator" component={WordGenerator} />
         <Route path="/create-word" component={CreateWordForm} />
         <Route path="/create-sentence" component={CreateSentenceForm} />
-        <Route path="/privacy-policy" component={PrivacyPolicy} />  // 追加
-        {/* 他のルートも追加 */}
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/dictionary-management" component={DictionaryManagement} />  // 追加
       </Switch>
     </Router>
   );
