@@ -1,12 +1,9 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>辞書アプリ</title>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="scripts/home.js"></script>
 </head>
 <body>
   <header>
@@ -16,14 +13,29 @@
         <li><a href="index.html">ホーム</a></li>
         <li><a href="dictionary.html">辞書</a></li>
         <li><a href="account.html">アカウント</a></li>
+        <li><a href="terms_of_use.html">利用規約</a></li>
       </ul>
     </nav>
   </header>
   <main>
     <section>
+      <h2>辞書アプリについて</h2>
+      <p>このアプリは、ユーザーが独自の辞書を作成し、管理できるウェブアプリケーションです。辞書には単語の追加や例文の作成が可能で、日々更新される今日の例文もご利用いただけます。</p>
+    </section>
+
+    <section>
       <h2>今日の例文</h2>
-      <p id="sentence-of-the-day"></p>
+      <p id="sentence-of-the-day">ここに毎日生成される例文が表示されます。</p>
+    </section>
+
+    <section>
+      <h2>著作権情報</h2>
+      <p>&copy; 2024 辞書アプリチーム。無断転載を禁じます。</p>
     </section>
   </main>
+  <footer>
+    <p>&copy; 2024 辞書アプリチーム。All rights reserved.</p>
+  </footer>
+  <script defer src="scripts/home.js"></script>
 </body>
 </html>
