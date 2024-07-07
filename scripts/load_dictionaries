@@ -1,0 +1,26 @@
+<?php
+require_once 'db_connect.php';
+
+// ユーザーIDを取得
+if (isset($_GET['userId'])) {
+    $userId = $_GET['userId'];
+
+    // 辞書データを取得するクエリ
+    $sql = "SELECT * FROM dictionaries WHERE user_id = $userId";
+    $result = $conn->query($sql);
+
+    $dictionaries = [];
+    while ($row = $result->fetch_assoc()) {
+        $dictionaries[] = $row;
+    }
+
+    // 辞書データをJSON形式で返す
+    header('Content-Type: application/json');
+    echo json_encode(['dictionaries' => $dictionaries]);
+} else {
+    // ユーザーIDが指定されていない場合のエラー処理
+    echo json_encode(['error' => 'ユーザーIDが指定されていません']);
+}
+
+$conn->close();
+?>
