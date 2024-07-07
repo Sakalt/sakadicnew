@@ -1,0 +1,28 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import WordPage from './pages/WordPage';
+import SettingsPage from './pages/SettingsPage';
+import CreateDictionary from './components/CreateDictionary';
+import SentenceOfTheDay from './components/SentenceOfTheDay';
+import WordGenerator from './components/WordGenerator';
+
+function App() {
+  return (
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/words/:wordId" component={WordPage} />
+        <Route path="/settings" component={SettingsPage} />
+        <Route path="/create-dictionary" component={CreateDictionary} />
+        <Route path="/sentence-of-the-day" component={SentenceOfTheDay} />
+        <Route path="/word-generator" component={WordGenerator} />
+        {/* 他のルートも追加 */}
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
