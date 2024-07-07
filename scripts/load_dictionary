@@ -1,0 +1,41 @@
+<?php
+// データベース接続情報を含むファイル
+require_once 'db_connect.php';
+
+// 辞書IDを取得
+if (isset($_GET['dictionaryId'])) {
+    $dictionaryId = $_GET['dictionaryId'];
+
+    // 辞書データを取得するクエリ
+    $sql = "SELECT * FROM dictionaries WHERE id = $dictionaryId";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $dictionary = $result->fetch_assoc();
+        $dictionaryId = $dictionary['id'];
+
+        // 単語データを取得するクエリ
+        $sqlWords = "SELECT * FROM words WHERE dictionary_id = $dictionaryId";
+        $resultWords = $conn->query($sqlWords);
+
+        $words = [];
+        while ($row = $resultWords->fetch_assoc()) {
+            $words[] = $row;
+        }
+
+        // 辞書データをJSON形式で返す
+        $dictionary['words'] = $words;
+        header('Content-Type: application/json');
+        echo json_encode($dictionary);
+    } else {
+        // データが見つからない場合のエラー処理
+        echo json_encode(['error' => '辞書が見つかりませんでした']);
+    }
+} else {
+    // 辞書IDが指定されていない場合のエラー処理
+    echo json_encode(['error' => '辞書IDが指定されていません']);
+}
+
+// データベース接続をクローズ
+$conn->close();
+?>
