@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統計</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="statistics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>統計</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="dictionary.html?id=1">辞書1</a></li>
+                <li><a href="dictionary.html?id=2">辞書2</a></li>
+                <li><a href="settings.html">設定</a></li>
+                <li><a href="statistics.html">統計</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>辞書の統計情報</h2>
+        <div>
+            <p>単語数: <span id="word-count"></span></p>
+            <p>例文数: <span id="sentence-count"></span></p>
+        </div>
+        <canvas id="charDistributionChart"></canvas>
+    </main>
+
+    <footer>
+        <!-- フッターの内容 -->
+    </footer>
+</body>
+</html>
