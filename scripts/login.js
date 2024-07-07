@@ -22,3 +22,17 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             errorMessage.textContent = data.error || 'ログインに失敗しました。';
         }
     });
+document.addEventListener('DOMContentLoaded', function() {
+    // ここにDOM要素へのアクセスやイベントリスナーの設定を記述する
+});
+const emailInput = document.getElementById('email');
+if (emailInput) {
+    const emailValue = emailInput.value; // emailInputがnullでないことを確認してからプロパティにアクセスする
+} else {
+    console.error('IDがemailの要素が見つかりません。');
+}
+// Login.js の該当部分のコード例
+const emailInput = document.getElementById('email');
+const emailValue = emailInput.value; // ここでエラーが発生している場合
+
+console.log(emailInput); // emailInputがnullであるかを確認する
