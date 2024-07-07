@@ -1,0 +1,83 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function CreateSentenceForm() {
+  const [sentence, setSentence] = useState('');
+  const [translation, setTranslation] = useState('');
+  const [tags, setTags] = useState(['']);
+  const [font, setFont] = useState('');
+
+  const handleSubmit = async () => {
+    const newSentence = {
+      sentence,
+      translation,
+      tags,
+      font
+    };
+    await axios.post('/api/sentences', newSentence);
+    alert('例文が作成されました');
+  };
+
+  const handleTagChange = (index, value) => {
+    const newTags = [...tags];
+    newTags[index] = value;
+    setTags(newTags);
+  };
+
+  const addTag = () => {
+    setTags([...tags, '']);
+  };
+
+  return (
+    <div>
+      <h2>例文作成</h2>
+      <div>
+        <label>
+          例文:
+          <input
+            type="text"
+            value={sentence}
+            onChange={(e) => setSentence(e.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          翻訳:
+          <input
+            type="text"
+            value={translation}
+            onChange={(e) => setTranslation(e.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          タグ:
+          {tags.map((tag, index) => (
+            <input
+              key={index}
+              type="text"
+              value={tag}
+              onChange={(e) => handleTagChange(index, e.target.value)}
+            />
+          ))}
+        </label>
+        <button onClick={addTag}>タグを追加</button>
+      </div>
+      <div>
+        <label>
+          フォント:
+          <input
+            type="text"
+            value={font}
+            onChange={(e) => setFont(e.target.value)}
+          />
+        </label>
+      </div>
+      <button onClick={handleSubmit}>作成</button>
+    </div>
+  );
+}
+
+export default CreateSentenceForm;
