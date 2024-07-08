@@ -2,32 +2,39 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>辞書</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="scripts/dictionary.js"></script>
+    <title>辞書ページ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #EE7C00; /* 薄いオレンジ */
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            background-color: #09FF00; /* ボタンの色 */
+            color: #000;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="scripts/dictionary.js" defer></script>
 </head>
 <body>
-    <header class="header">
-        <h1>辞書</h1>
+    <header>
+        <h1>辞書ページ</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="dictionary.html?id=1">辞書1</a></li>
-                <li><a href="dictionary.html?id=2">辞書2</a></li>
-                <li><a href="settings.html">設定</a></li>
-                <li><a href="statistics.html">統計</a></li>
-            </ul>
+            <a href="index.html">ホーム</a>
+            <a href="settings.html?dictionaryId=1">設定1</a>
+            <a href="settings.html?dictionaryId=2">設定2</a>
         </nav>
     </header>
-
     <main>
-        <h2 id="dictionary-title">辞書</h2>
-        <ul id="word-list"></ul>
+        <div id="dictionary-content"></div>
+        <button id="prev-page">前のページ</button>
+        <button id="next-page">次のページ</button>
     </main>
-
-    <footer>
-        <!-- フッターの内容 -->
-    </footer>
 </body>
 </html>
