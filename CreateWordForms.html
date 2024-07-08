@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>単語と例文の作成</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #EE7C00; /* 薄いオレンジ */
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            background-color: #09FF00; /* ボタンの色 */
+            color: #000;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+    <script src="scripts/CreateWordForms.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>単語と例文の作成</h1>
+        <nav>
+            <a href="index.html">ホーム</a>
+        </nav>
+    </header>
+    <main>
+        <h2>辞書を選択してください</h2>
+        <select id="dictionary-select"></select>
+
+        <h2>単語を作成</h2>
+        <form id="create-word-form">
+            <label for="word">単語:</label>
+            <input type="text" id="word" name="word" required>
+            <button type="submit">作成</button>
+        </form>
+
+        <h2>例文を作成</h2>
+        <form id="create-sentence-form">
+            <label for="sentence">例文:</label>
+            <input type="text" id="sentence" name="sentence" required>
+            <button type="submit">作成</button>
+        </form>
+    </main>
+</body>
+</html>
