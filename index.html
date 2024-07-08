@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>辞書Webアプリケーション</title>
+    <title>ホーム</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,35 +18,23 @@
             padding: 10px;
             border: none;
             cursor: pointer;
+            margin: 5px;
         }
     </style>
-    <script src="scripts/autoCreateAccount.js" defer></script>
-    <script src="scripts/todaysSentence.js" defer></script> <!-- 今日の例文生成用スクリプト -->
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>辞書Webアプリケーション</h1>
+        <h1>ホームページ</h1>
         <nav>
-            <a href="dictionary.html">辞書</a>
-            <a href="sentences.html">例文</a>
-            <a href="settings.html">設定</a>
-            <a href="images.html">画像</a>
-            <a href="wordRequest.html">造語依頼</a>
+            <a href="index.html">ホーム</a>
+            <a href="account.html">アカウント</a>
         </nav>
     </header>
     <main>
-        <section>
-            <h2>説明</h2>
-            <p>このアプリケーションはオンライン辞書を作成し、共有するためのものです。</p>
-        </section>
-        <section>
-            <h2>今日の例文 (毎日6:00更新)</h2>
-            <p id="today-sentence">例文を生成中...</p>
-        </section>
-        <section>
-            <h2>著作権</h2>
-            <p>このアプリケーションに関する著作権情報をここに記載します。</p>
-        </section>
+        <div id="dictionary-buttons"></div>
+        <button id="create-dictionary-btn">辞書作成</button>
+        <div id="account-info"></div>
     </main>
 </body>
 </html>
