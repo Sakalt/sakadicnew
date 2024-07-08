@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>辞書アプリ</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>辞書Webアプリケーション</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #EE7C00; /* 薄いオレンジ */
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            background-color: #09FF00; /* ボタンの色 */
+            color: #000;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script src="scripts/todaysSentence.js" defer></script> <!-- 今日の例文生成用スクリプト -->
 </head>
 <body>
-  <header>
-    <h1>辞書アプリ</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="dictionary.html">辞書</a></li>
-        <li><a href="account.html">アカウント</a></li>
-        <li><a href="register.html">新規登録</a></li>
-        <li><a href="terms_of_use.html">利用規約</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section>
-      <h2>辞書アプリについて</h2>
-      <p>このアプリは、ユーザーが独自の辞書を作成し、管理できるウェブアプリケーションです。辞書には単語の追加や例文の作成が可能で、日々更新される今日の例文もご利用いただけます。</p>
-    </section>
-
-    <section>
-      <h2>今日の例文</h2>
-      <p id="src/components/SentenceOfTheDay.js">ここに毎日生成される例文が表示されます。</p>
-    </section>
-
-    <section>
-      <h2>著作権情報</h2>
-      <p>&copy; 2024 辞書アプリチーム。無断転載を禁じます。</p>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2024 辞書アプリチーム。All rights reserved.</p>
-  </footer>
-  <script defer src="scripts/home.js"></script>
+    <header>
+        <h1>辞書Webアプリケーション</h1>
+        <nav>
+            <a href="dictionary.html">辞書</a>
+            <a href="sentences.html">例文</a>
+            <a href="settings.html">設定</a>
+            <a href="images.html">画像</a>
+            <a href="wordRequest.html">造語依頼</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>説明</h2>
+            <p>このアプリケーションはオンライン辞書を作成し、共有するためのものです。</p>
+        </section>
+        <section>
+            <h2>今日の例文 (毎日6:00更新)</h2>
+            <p id="today-sentence">例文を生成中...</p>
+        </section>
+        <section>
+            <h2>著作権</h2>
+            <p>自由に</p>
+        </section>
+    </main>
 </body>
 </html>
