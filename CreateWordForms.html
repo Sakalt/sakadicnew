@@ -38,6 +38,12 @@
         <form id="create-word-form">
             <label for="word">単語:</label>
             <input type="text" id="word" name="word" required>
+            <label for="pronunciation">発音:</label>
+            <input type="text" id="pronunciation" name="pronunciation">
+            <label for="meaning">意味:</label>
+            <input type="text" id="meaning" name="meaning">
+            <label for="variations">変化形 (カンマで区切る):</label>
+            <input type="text" id="variations" name="variations">
             <button type="submit">作成</button>
         </form>
 
@@ -47,6 +53,12 @@
             <input type="text" id="sentence" name="sentence" required>
             <button type="submit">作成</button>
         </form>
+
+        <h2>OTM-jsonを読み込む</h2>
+        <input type="file" id="otm-file-input" accept=".json">
+
+        <h2>フォントをアップロード</h2>
+        <input type="file" id="font-file-input" accept=".ttf,.otf">
     </main>
 </body>
 </html>
