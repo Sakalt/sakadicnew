@@ -55,12 +55,16 @@
         </form>
 
         <h2>OTM-jsonを読み込む</h2>
+        <form id="json-upload">
         <input type="file" id="otm-file-input" accept=".json">
-
+        <script src="scripts/jsonuploads.js" defer></script>
+　　　　<button type="submit">保存</button>
+        </form>
+        <form id="font-upload">
         <h2>フォントをアップロード</h2>
         <input type="file" id="font-file-input" accept=".ttf,.otf">
          <script src="scripts/fontuploads.js" defer></script>
-         <script src="scripts/jsonuploads.js" defer></script>
+        </form>
     </main>
 </body>
 </html>
