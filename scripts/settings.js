@@ -14,15 +14,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function saveSettings(settings) {
-        const dictionaryId = settings.dictionaryId;
         fetch('settings.json')
             .then(response => response.json())
             .then(data => {
-                data[dictionaryId] = settings;
+                data[settings.dictionaryId] = settings;
                 return data;
             })
             .then(updatedData => {
-                localStorage.setItem('dictionarySettings', JSON.stringify(updatedData));
+                return fetch('settings.json', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedData)
+                });
+            })
+            .then(() => {
                 alert('Settings saved successfully!');
             })
             .catch(error => console.error('Error:', error));
@@ -35,13 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadSettings() {
         const dictionaryId = getDictionaryIdFromURL();
-        const dictionarySettings = JSON.parse(localStorage.getItem('dictionarySettings')) || {};
-        const settings = dictionarySettings[dictionaryId];
-
-        if (settings) {
-            document.getElementById('font').value = settings.font;
-        }
-    }
-
-    loadSettings();
-});
+        fetch('settings.json')
+            .then(response => response.json())
+            .then
