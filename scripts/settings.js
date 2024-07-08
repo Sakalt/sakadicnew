@@ -14,10 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function saveSettings(settings) {
-        const dictionarySettings = JSON.parse(localStorage.getItem('dictionarySettings')) || {};
-        dictionarySettings[settings.dictionaryId] = settings;
-        localStorage.setItem('dictionarySettings', JSON.stringify(dictionarySettings));
-        alert('Settings saved successfully!');
+        const dictionaryId = settings.dictionaryId;
+        fetch('settings.json')
+            .then(response => response.json())
+            .then(data => {
+                data[dictionaryId] = settings;
+                return data;
+            })
+            .then(updatedData => {
+                localStorage.setItem('dictionarySettings', JSON.stringify(updatedData));
+                alert('Settings saved successfully!');
+            })
+            .catch(error => console.error('Error:', error));
     }
 
     function getDictionaryIdFromURL() {
