@@ -1,0 +1,1 @@
+https://wikiwiki.jp/starworld
